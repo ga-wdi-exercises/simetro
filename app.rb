@@ -8,6 +8,7 @@ get '/' do
 end
 
 get '/start' do
+  params[:line]
   @stations = metro[params[:line].to_sym]
   erb :start
 end

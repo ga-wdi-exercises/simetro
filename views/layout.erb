@@ -5,6 +5,13 @@
     <title>simetro</title>
   </head>
   <body>
-    <%= yield %>
+    <header>
+      <h1><a href='/'>Simetro</a></h1>
+      <em>The ultimate metro trip planner!</em>
+    </header>
+    <div>
+      <%= yield %>
+      <img src="/map.png" alt="Map of Metro" />
+    </div>
   </body>
 </html>
