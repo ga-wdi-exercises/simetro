@@ -1,0 +1,9 @@
+choose a line
+<form class="" action="/start" method="get">
+  <select name="line">
+<% @lines.each do |line| %>
+<option value="<%= line %>"> <%= line %> </option>
+<% end %>
+</select>
+  <button type="submit">submit</button>
+</form>

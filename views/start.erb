@@ -1,0 +1,10 @@
+choose a starting station
+<form action="/end" method="get">
+  <input type="hidden" name="line" value="<%= params[:line] %>">
+  <select class="" name="start">
+    <% @stations.each do |station| %>
+    <option> <%= station %> </option>
+    <% end %>
+  </select>
+  <button type="submit">Submit</button>
+</form>
