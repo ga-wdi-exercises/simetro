@@ -17,3 +17,8 @@ get '/end' do
   @stations = metro[params[:line].to_sym]
   erb :end
 end
+
+get '/trip' do
+  @num_stops =
+  "trip page"
+end
