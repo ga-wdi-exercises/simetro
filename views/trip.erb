@@ -1,0 +1,8 @@
+<h2>Trip Summary</h2>
+<form action="/trip" method="get">
+  <input type="hidden" name="line" value="<%= params[:line] %>">
+  <input type="hidden" name="start" value="<%= params[:start] %>">
+  <input type="hidden" name="start" value="<%= params[:start] %>">
+
+  <p>It is <%= @distance %> stops between <%= params[:start] %> and <%= params[:end] %>.</p>
+</form>
