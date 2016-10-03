@@ -25,13 +25,6 @@ get '/trip' do
   @indexStart = metro[@line].index(@start)
   @indexEnd = metro[@line].index(@end)
   @numStops = (@indexEnd - @indexStart).abs
-
-  # @x = metro[@line]
-  # @startIndex = metro[params[:line].to_s].index(params[:start].to_s)
-
-  # "#{@startIndex} hello"
-
   x = metro[:"red"].index("Bethesda")
-  # x = metro.index(params:line)
   erb :trip
 end
