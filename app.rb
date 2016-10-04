@@ -20,12 +20,11 @@ get '/end' do
 end
 
 get '/trip' do
-  @num_stops=
   @line = params[:line].to_sym
   @start = params[:start].to_s
   @end = params[:end].to_s
-  @indexStart = metro[@line].index(@start)
-  @indexEnd = metro[@line].index(@end)
-  @numStops = (@indexEnd - @indexStart).abs
+  @startIdx = metro[@line].index(@start)
+  @endIdx = metro[@line].index(@end)
+  @numStops = ( @endIdx - @startIdx).abs
   erb :trip
 end
