@@ -1,4 +1,7 @@
+require 'pry'
+
 def metro
+
   {
     "red": [
       "Shady Grove", "Rockville", "Twinbrook", "White Flint", "Grovesnor-Strathmore", "Medical Center", "Bethesda", "Friendship Heights", "Tenelytown-AU", "Van Ness-UDC", "Cleveland Park", "Woodley Park", "Dupont Circle", "Faragut North", "Metro Center", "Gallery Place", "Judiciary Square", "Union Station", "NOMA-Gallaudet U", "Rhode Island Ave", "Brookland-CUA", "Fort Totten", "Takoma", "Silver Spring", "Forest Glen", "Wheaton", "Glenmont"
@@ -9,4 +12,6 @@ def metro
     "yellow": ["Huntington", "Eisenhower Avenue", "King Street – Old Town", "Braddock Road", "Potomac Yard", "Ronald Reagan Washington National Airport", "Crystal City", "Pentagon City", "Pentagon", "L'Enfant Plaza", "Archives – Navy Memorial – Penn Quarter", "Gallery Place", "Mount Vernon Square", "Shaw – Howard University", "U Street / African-American Civil War Memorial / Cardozo", "Columbia Heights", "Georgia Avenue – Petworth", "Fort Totten", "West Hyattsville", "Prince George's Plaza", "College Park – University of Maryland", "Greenbelt"],
     "green": ["Branch Avenue", "Suitland", "Naylor Road", "Southern Avenue", "Congress Heights", "Anacostia", "Navy Yard – Ballpark", "Waterfront", "L'Enfant Plaza", "Archives", "Gallery Place", "Mount Vernon Square", "Shaw – Howard University", "U Street", "Columbia Heights", "Georgia Avenue – Petworth", "Fort Totten", "West Hyattsville", "Prince George's Plaza", "College Park – University of Maryland", "Greenbelt"]
   }
+
 end
+ binding.pry
