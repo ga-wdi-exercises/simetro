@@ -10,3 +10,20 @@ def metro
     "green": ["Branch Avenue", "Suitland", "Naylor Road", "Southern Avenue", "Congress Heights", "Anacostia", "Navy Yard – Ballpark", "Waterfront", "L'Enfant Plaza", "Archives", "Gallery Place", "Mount Vernon Square", "Shaw – Howard University", "U Street", "Columbia Heights", "Georgia Avenue – Petworth", "Fort Totten", "West Hyattsville", "Prince George's Plaza", "College Park – University of Maryland", "Greenbelt"]
   }
 end
+
+# def stops
+#   count = 0
+#   while red[count] != startstation
+#     count +=1
+#     puts count
+#   end
+#
+#
+#   def stops
+#     count_one = 0
+#     while red[count] != endstatio
+#       count_one +=1
+#       puts count_one
+#     end
+#
+#   @num_stops = count_one - count
