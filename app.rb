@@ -2,6 +2,10 @@ require 'sinatra'
 require 'sinatra/reloader'
 require_relative 'metro'
 
+get  '/' do
+  "1"
+end
+
 get '/' do
   @lines = metro.keys
   erb :index
