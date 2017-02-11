@@ -1,7 +1,7 @@
-<h2> 2. Choose a starting station for the <span class='<%= params[:line] %>'><%= params[:line] %> line</span></h2>
+<h2> 2. Choose a starting station for the <span class='<%= @line %>'><%= @line %> line</span></h2>
 
 <form action="/end" method="get">
-  <input type="hidden" name="line" value="<%= params[:line] %>">
+  <input type="hidden" name="line" value="<%= @line %>">
   <select class="" name="start">
     <% @stations.each do |station| %>
     <option> <%= station %> </option>

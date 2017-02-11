@@ -9,11 +9,14 @@ end
 
 get '/start' do
   @stations = metro[params[:line].to_sym]
+  @line = params[:line]
   erb :start
 end
 
 get '/end' do
   @stations = metro[params[:line].to_sym]
+  @line = params[:line]
+  @start = params[:start]
   erb :end
 end
 
