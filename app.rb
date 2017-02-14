@@ -20,6 +20,8 @@ end
 
 get '/trip' do
   line = metro[params[:line].to_sym]
-  last = line.index(params[:end])
-  start = line.index(params[:start])
+  start = line.index(params[:end])
+  last = line.index(params[:start])
+  @num_stops = (start - last).abs.to_sym
+  erb :trip
 end
