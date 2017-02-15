@@ -7,6 +7,14 @@ get '/' do
   erb :index
 end
 
+get '/trip' do
+  line = metro[params[:line].to_sym]
+  starting_point = line.index(params[:start])
+  ending_point = line.index(params[:end])
+  @num_stops = (starting_point - ending_point).abs
+  erb :trip
+end
+
 get '/start' do
   params[:line]
   @stations = metro[params[:line].to_sym]
