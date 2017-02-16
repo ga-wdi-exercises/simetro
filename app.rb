@@ -22,11 +22,11 @@ get '/trip' do
    line = metro[ params[:line].to_sym ]
    puts "*" * 50
    puts line
-                            start_location = params[:start]
+   start_location = params[:start]
    start_index = line.index(start_location)
    puts "*" * 50
    puts start_index
-                          end_location = params[:end]
+   end_location = params[:end]
    end_index = line.index(end_location)
    puts "*" * 50
    puts end_index
