@@ -12,6 +12,7 @@ get '/trip' do
   metrostart = line.inex(params[:start])
   metroend = line.inex(params[:end])
   @num_stops = (metrostart - metroend).abs.to_s
+  erb :trip
 end
 
 get '/start' do
