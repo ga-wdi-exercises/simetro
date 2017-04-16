@@ -23,7 +23,16 @@ get '/trip' do
 line = metro[params[:line].to_sym]
 start_station = params[:start]
 start_index = line.find_index(start_station)
-return start_index.to_s
+
+end_station = params[:end]
+end_index = line.find_index(end_station)
+
+stops = end_index - start_index if end_index > start_index
+stops = start_index - end_index if end_index < start_index
+
+@num_stops = stops.to_s
+
+erb :trip
 end
 
 puts @start_station
