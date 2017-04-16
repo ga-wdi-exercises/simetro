@@ -1,5 +1,5 @@
 <h2> 2. Choose a starting station for the <span class='<%= params[:line] %>'><%= params[:line] %> line</h2>
-  <h3><%= @start_index %></h3>
+  <h3>This is #{<%= @line_array %>}</h3>
 
 <form action="/end" method="get">
   <input type="hidden" name="line" value="<%= params[:line] %>">
