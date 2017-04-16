@@ -13,7 +13,17 @@ get '/start' do
   erb :start
 end
 
+get '/trip'
+@num_stops =
+erb :trip
+end
+
 get '/end' do
   @stations = metro[params[:line].to_sym]
   erb :end
+end
+
+get '/trip'
+@num_stops =
+erb :trip
 end
