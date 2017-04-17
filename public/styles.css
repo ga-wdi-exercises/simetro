@@ -29,6 +29,11 @@ header h1 a{
   text-decoration: none;
 }
 
+.stationName {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
 .red{
   color:#C10B34;
 }
