@@ -1,0 +1,4 @@
+<p>Metro Line: <%= @line.capitalize %></p>
+<p>Starting Station: <%= @start_station %>(<%= @start_station_index.to_s %>)</p>
+<p>End Station: <%= @end_station %>(<%= @end_station_index.to_s %>)</p>
+<p>Total number of stops between <span class = "stationName"><%= @start_station %></span> and <span class = "stationName"><%= @end_station %></span>: <%= @num_stops %> stop(s)</p>
