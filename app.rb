@@ -17,20 +17,28 @@ get '/start' do
   @chosen_line_complete = metro[:@remove_quotes]
   puts "This is the line: #{@chosen_line}"
   puts "What is this? #{@chosen_line_complete}"
-  @start_station = params[:start]
+
   @stations = metro[params[:line].to_sym]
   # @start_station_index = metro.start_index.index(@start_station)
   erb :start
 end
 # #
 get '/end' do
+  @start_station = params[:start]
+  #find index of station
+  start_station_index = @chosen_line_complete.each_with_index do |stop|
+    if stop = @start_station return index
+  end
   @stations = metro[params[:line].to_sym]
   puts "This is the start station #{@start_station}"
-  @end_station = params[:end]
   erb :end
 end
 # #
-# get '/trip' do
-#   @num_stops = @end_station_index - @start_station_index
-#   erb :trip
-# end
+get '/trip' do
+  @end_station = params[:end]
+  end_station_index = @chosen_line_complete.each_with_index do |stop|
+  if stop = @end_station return index
+  end
+  @num_stops = @end_station_index - @start_station_index
+  erb :trip
+end
