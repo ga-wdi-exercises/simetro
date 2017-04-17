@@ -16,7 +16,8 @@ get '/start' do
   @remove_quotes = params[:line].chomp('"').reverse.chomp('"').reverse
   @chosen_line_complete = metro[:@remove_quotes]
   puts "This is the line: #{@chosen_line}"
-  puts "What is this? #{@chosen_line_complete}"
+  #made a puts statement to see if the variable would pull through to access the line in the metro hash
+  #puts "What is this? #{@chosen_line_complete}"
 
   @stations = metro[params[:line].to_sym]
   # @start_station_index = metro.start_index.index(@start_station)
