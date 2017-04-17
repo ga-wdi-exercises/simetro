@@ -17,3 +17,9 @@ get '/end' do
   @stations = metro[params[:line].to_sym]
   erb :end
 end
+
+get '/trip' do
+	# for testing, just putting in 3 for now.  how to get index of the start station and end station?
+	@num_stops = "3"
+	erb :trip
+end
