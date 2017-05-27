@@ -9,11 +9,24 @@ end
 
 get '/start' do
   params[:line]
-  @stations = metro[params[:line].to_sym]
+  @start = metro[params[:line].to_sym]
   erb :start
 end
 
 get '/end' do
-  @stations = metro[params[:line].to_sym]
+  @end = metro[params[:line].to_sym]
   erb :end
+end
+
+get '/trip' do
+	@line = metro[params[:line].to_sym]
+	@starts = params[:start]
+	@ends = params[:end]
+	if (@line.index(@ends) - @line.index(@starts)) < 0
+		@num_stops = (@line.index(@ends) - @line.index(@starts))* -1
+	else
+		@num_stops = @line.index(@ends) - @line.index(@starts)
+	end 
+
+	erb :trip
 end
