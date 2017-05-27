@@ -19,5 +19,7 @@ get '/end' do
 end
 
 get '/trip' do
-	@line = metro[params[:line].to_sym].index_of()
+	@line = metro[params[:line].to_sym]
+	@index_start = @line.index('Shady Grove')
+	erb :trip
 end
