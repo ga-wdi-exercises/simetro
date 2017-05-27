@@ -22,6 +22,11 @@ get '/trip' do
 	@line = metro[params[:line].to_sym]
 	@starts = params[:start]
 	@ends = params[:end]
-	@stops =  @line.index(@ends) - @line.index(@starts)
+	if (@line.index(@ends) - @line.index(@starts)) < 0
+		@num_stops = (@line.index(@ends) - @line.index(@starts))* -1
+	else
+		@num_stops = @line.index(@ends) - @line.index(@starts)
+	end 
+
 	erb :trip
 end
