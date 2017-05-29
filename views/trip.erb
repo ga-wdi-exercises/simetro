@@ -1,0 +1,6 @@
+<h2> Trip Distance</h2>
+
+
+    <% @stations.each do |station| %>
+    return "Your trip will be <%=station[params[:start].to_i] - station[params[:end].to_i] %> stops!"
+    <% end %>
