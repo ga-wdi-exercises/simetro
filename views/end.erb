@@ -3,7 +3,7 @@
   <input type="hidden" name="line" value="<%= params[:line] %>">
   <input type="hidden" name="start" value="<%= params[:start] %>">
   <select class="" name="end">
-    <% @stations.each do |station| %>
+    <% @end.each do |station| %>
     <option> <%= station %> </option>
     <% end %>
   </select>
