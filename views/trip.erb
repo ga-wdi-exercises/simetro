@@ -2,5 +2,9 @@
 
 
     <% @stations.each do |station| %>
-    return "Your trip will be <%=station[params[:start].to_i] - station[params[:end].to_i] %> stops!"
+    return "Your trip will be <%=@num_stops %> stops!"
+
+  <a href="localhost:4556/">
+    <button type="button">Home</button>
+  </a>
     <% end %>

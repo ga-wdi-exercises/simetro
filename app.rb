@@ -19,6 +19,6 @@ get '/end' do
 end
 
 get '/trip' do
-  @num_stops = metro[params[:start].to_sym] - metro[params[:end].to_sym]
+  @num_stops = metro[params[:start].to_i] - metro[params[:end].to_i]
   erb :trip
 end
