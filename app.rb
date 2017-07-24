@@ -28,12 +28,8 @@ get '/trip' do
   stations = metro[params[:line].to_sym]
   first = stations.index(params[:start])
   last = stations.index(params[:end])
-  distance = last - first
-  if distance < 0
-  return "#{distance * -1}"
-else
-  return "#{distance}"
-end
+  @distance = last - first
+  erb :trip
 end
 
 # binding.pry
