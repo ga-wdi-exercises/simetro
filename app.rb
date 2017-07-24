@@ -25,5 +25,5 @@ get '/trip' do
   @start_index = @line.find_index(@start)
   @end_index = @line.find_index(@end)
   @num_stops = (@start_index - @end_index).abs
-  erb :trips
+  erb :trip
 end
