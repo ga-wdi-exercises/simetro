@@ -1,0 +1,5 @@
+<%if @distance < 0%>
+<h2><%="You're #{@distance.to_i * -1} stops from your destination."%></h2>
+<%else%>
+<h2><%="You're #{@distance} stops from your destination."%></h2>
+<%end%>
