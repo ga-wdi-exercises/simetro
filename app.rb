@@ -24,14 +24,14 @@ get '/end' do
 end
 
 get '/trip' do
-start_trip = params[:start]
-end_trip = params[:end]
-line = params[:line].to_sym
+  @start_station = params[:start]
+  @end_station = params[:end]
+  @line = params[:line].to_sym
 
-start_index = metro[line].find_index(start_trip)
-end_index = metro[line].find_index(end_trip)
+  start_index = metro[@line].find_index(@start_station)
+  end_index = metro[@line].find_index(@end_station)
 
-num_stops = end_index - start_index
-return num_stops.to_s
+  @num_stops = end_index - start_index
+  erb:trip
 
 end
