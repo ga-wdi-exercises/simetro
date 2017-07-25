@@ -1,11 +1,35 @@
-<h2> 2. Choose a starting station for the <span class='<%= params[:line] %>'><%= params[:line] %> line</h2>
+<!-- clients.select{|key, hash| hash["client_id"] == "2180" } -->
+<% stop1 = params[:stop1] %>
+<!-- <% line1 = @lines.select {|line, station| station == []} %> -->
+
+<!-- <% line1 = @lines.map {|line, stations| stations.select {|station| station == stop1}} %> -->
+
+<% line1 = @lines.map {|line, stations| stations.find do
+  |station| station.include? stop1
+end } %>
+
+<% stop1 = line1.find {|station| station != nil} %>
+
+<% @lines.map {|line, stations| stations.select do |station|
+   if station.include? stop1
+     @my_key1 = line
+   end
+end } %>
+
+<h2>Station one: <%= stop1 %>, Line: <%= @my_key1 %> </h2>
+<h2> 2. Choose destination station: </h2>
 
 <form action="/end" method="get">
-  <input type="hidden" name="line" value="<%= params[:line] %>">
-  <select class="" name="start">
-    <% @stations.each do |station| %>
-    <option> <%= station %> </option>
+<input type="hidden" name="stop1" value="<%= params[:stop1] %>">
+
+<select name="stop2">
+  <% @lines.each do |line, stops| %>
+    <% stops.each do |stop| %>
+    <option value="<%= stop %>"> <%= stop %> </option>
+
     <% end %>
+  <% end %>
   </select>
+
   <button type="submit">Submit</button>
 </form>

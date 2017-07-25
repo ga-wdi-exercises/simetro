@@ -3,17 +3,17 @@ require 'sinatra/reloader'
 require_relative 'metro'
 
 get '/' do
-  @lines = metro.keys
+  @lines = metro
   erb :index
 end
 
 get '/start' do
-  @stations = metro[params[:line].to_sym]
+  @lines = metro
   erb :start
 end
 
 get '/end' do
-  @stations = metro[params[:line].to_sym]
+  @lines = metro
   erb :end
 end
 

@@ -1,9 +1,14 @@
-<h2>1. Choose a Line</h2>
-<form class="" action="/start" method="get">
-  <select name="line">
-<% @lines.each do |line| %>
-<option value="<%= line %>"> <%= line %> </option>
-<% end %>
+<h2>1. Choose Boarding Station</h2>
+<form action="/start" method="get">
+
+  <select name="stop1">
+    <% @lines.each do |line, stops| %>
+      <% stops.each do |stop| %>
+      <option value="<%= stop %>"> <%= stop %> </option>
+
+      <% end %>
+    <% end %>
 </select>
+
   <button type="submit">submit</button>
 </form>

@@ -1,11 +1,71 @@
-<h2>3. Choose an end station</h2>
-<form action="/trip" method="get">
-  <input type="hidden" name="line" value="<%= params[:line] %>">
-  <input type="hidden" name="start" value="<%= params[:start] %>">
-  <select class="" name="end">
-    <% @stations.each do |station| %>
-    <option> <%= station %> </option>
-    <% end %>
-  </select>
-  <button type="submit">Submit</button>
+<% stop1 = params[:stop1] %>
+<% stop2 = params[:stop2] %>
+
+
+<!-- LINE ONE -->
+<% line1 = @lines.map {|line, stations| stations.find do
+  |station| station.include? stop1
+end } %>
+
+<% stop1 = line1.find {|station| station != nil} %>
+
+<% @lines.map {|line, stations| stations.select do |station|
+   if station.include? stop1
+     @my_key1 = line
+   end
+end } %>
+
+
+<!-- LINE TWO -->
+<% line2 = @lines.map {|line, stations| stations.find do
+  |station| station.include? stop2
+end } %>
+
+<% stop2 = line2.find {|station| station != nil} %>
+
+<% @lines.map {|line, stations| stations.select do |station|
+   if station.include? stop2
+     @my_key2 = line
+   end
+end } %>
+
+ <!-- CHANGE OVER -->
+ <% change_over = @lines[@my_key1].map do|station1|
+   @lines[@my_key2].select do|station2|
+     station1 == station2
+   end
+ end %>
+
+ <% change_over = change_over.map do |i|
+   if i.any?
+     @change = i.join("")
+   end
+ end %>
+
+ <% stop_index1 = @lines[@my_key1.to_sym].find_index(stop1) %>
+ <% stop_index2 = @lines[@my_key2.to_sym].find_index(stop2) %>
+ <% change_index1 = @lines[@my_key1.to_sym].find_index(@change) %>
+ <% change_index2 = @lines[@my_key2.to_sym].find_index(@change) %>
+
+ <% num_stops1 = (stop_index1 - change_index1).abs %>
+ <% num_stops2 = (stop_index2 - change_index2).abs %>
+ <% total_stops = num_stops1 + num_stops2 %>
+
+ <!-- <h2>Num stops1: <%= stop_index1 %></h2>
+ <h2>Num stops2: <%= stop_index2 %></h2>
+ <h2>Num stops1: <%= change_index1 %></h2>
+ <h2>Num stops2: <%= change_index2 %></h2> -->
+
+
+<h2>Arrival: <%= stop1 %>, Line: <%= @my_key1 %> </h2>
+<h2><%= num_stops1 %> stops until change over station <h2>
+<h2>Change over station: <%= @change %></h2>
+<h2><%= num_stops2 %> more stops until destination station <h2>
+<h2>Destination: <%= stop2 %>, Line: <%= @my_key2 %> </h2>
+<h2>Total stops: <%= total_stops %> <h2>
+
+
+<form action="/end" method="get">
+  <input type="hidden" name="stop1" value="<%= params[:stop1] %>">
+  <input type="hidden" name="stop2" value="<%= params[:stop2] %>">
 </form>
