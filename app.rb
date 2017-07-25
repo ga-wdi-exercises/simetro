@@ -22,6 +22,28 @@ get '/end' do
 end
 
 
+
+# def total_length (color1, name1, color2, name2)
+#
+# @pos1 = metro[color1.to_sym].index_of(name1)
+#
+# @pos2 = metro[color2.to_sym].index_of(name2)
+#
+#
+# @break_point1 =0
+# @break_point2 =0
+#
+#
+# metro[color1.to_sym].times do |index|
+#   x = metro[color2.to_sym][index].find{|name| name == name1}
+#   if(x!=NilClass)
+#   break_point1 = metro[color1.to_sym].index_of(x)
+#   end
+# end
+
+
+
+
 get '/trip' do
 
  @stations = metro[params[:line].to_sym]
@@ -35,7 +57,7 @@ get '/trip' do
 
 @final = @stations.find_index(@pos2)
 
-@num_stops = @final - @initial
+@num_stops = (@final - @initial).abs
 
 erb :trip
 
