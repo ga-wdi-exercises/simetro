@@ -17,3 +17,12 @@ get '/end' do
   @stations = metro[params[:line].to_sym]
   erb :end
 end
+
+get '/trip' do
+  @start = params[:start]
+  @stop = params[:end]
+  @start_index = metro[params[:line].to_sym].find_index(@start)
+  @stop_index = metro[params[:line].to_sym].find_index(@stop)
+  @num_stops = (@stop_index.to_i - @start_index.to_i).abs
+  erb :trip
+end
